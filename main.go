@@ -35,4 +35,6 @@ func main() {
 	if err := ioutil.WriteFile(*path+"/"+"asc.json", b, 0666); err != nil {
 		log.Fatalf("Failed to write interface file: %+v", err)
 	}
+
+	log.Printf("Done")
 }

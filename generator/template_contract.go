@@ -3,7 +3,6 @@ package generator
 import (
 	"encoding/base64"
 	"io/ioutil"
-	"log"
 	"regexp"
 )
 
@@ -80,12 +79,10 @@ func (tc *TemplateContract) initCompiledPositions() {
 	var found int
 	for pc := pos; pc < len(tc.Compiled); {
 		opcode := tc.Compiled[pc]
-		log.Printf("%d %d", opcode, pc)
 		switch opcode {
 		case pushintOpcode:
 			size, _, _ := readPushIntOp(tc.Compiled, pc)
 
-			log.Printf("%d %d %d", opcode, pc, size)
 			tc.Variables[found].CompiledPosition = pc + 1 // Account for opcode
 			tc.Variables[found].CompiledLength = size - 1
 
