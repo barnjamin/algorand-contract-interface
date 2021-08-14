@@ -11,14 +11,15 @@ const (
 )
 
 type TemplateVariable struct {
-	Name string
-	Type VarType
+	Name string  `json:"name"`
+	Type VarType `json:"type"`
+	Op   string  `json:"op"`
 
-	SourceStart  int
-	SourceLength int
+	SourceStart  int `json:"src_start"`
+	SourceLength int `json:"src_length"`
 
-	CompiledPosition int
-	CompiledLength   int
+	CompiledPosition int `json:"byte_position,omitempty"`
+	CompiledLength   int `json:"byte_length,omitempty"`
 }
 
 func NewTemplateVariable(src string, pos []int) *TemplateVariable {
@@ -32,6 +33,7 @@ func NewTemplateVariable(src string, pos []int) *TemplateVariable {
 	return &TemplateVariable{
 		Name:         chunks[1],
 		Type:         getVarType(chunks[0]),
+		Op:           chunks[0],
 		SourceStart:  start,
 		SourceLength: pos[1] - start,
 	}

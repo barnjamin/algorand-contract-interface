@@ -51,7 +51,7 @@ func (m *Manifest) GenerateInterface() (*ContractInterface, error) {
 			enc := base64.StdEncoding.EncodeToString([]byte(tc.Compiled))
 			ci.Contracts[name] = ContractSchema{
 				Type: def.Type,
-				LogicSchema: LogicSchema{
+				LogicSchema: &LogicSchema{
 					Program{
 						Bytecode:  enc,
 						Address:   tc.Addr,
@@ -77,7 +77,7 @@ func (m *Manifest) GenerateInterface() (*ContractInterface, error) {
 
 			ci.Contracts[name] = ContractSchema{
 				Type: def.Type,
-				AppSchema: AppSchema{
+				AppSchema: &AppSchema{
 					Approval: Program{
 						Bytecode:  aenc,
 						Address:   atc.Addr,

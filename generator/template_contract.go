@@ -60,6 +60,8 @@ func NewTemplateContract(path string) (*TemplateContract, error) {
 }
 
 func (tc *TemplateContract) initCompiledPositions() {
+	const pushbytesOpcode = 128
+	const pushintOpcode = 129
 
 	pos := 1 // Version byte
 
@@ -75,33 +77,38 @@ func (tc *TemplateContract) initCompiledPositions() {
 		pos += size
 	}
 
-	for idx, v := range tc.Variables {
-		log.Printf("%+v %+v", idx, v)
-		//        pos += 1 # pushbytes opcode byte
-		//        var.length = int(self.assembled_bytes[pos]) # Get length byte
-		//        pos += 1  # length opcode byte
-		//        var.start = pos
+	var found int
+	for pc := pos; pc < len(tc.Compiled); {
+		opcode := tc.Compiled[pc]
+		log.Printf("%d %d", opcode, pc)
+		switch opcode {
+		case pushintOpcode:
+			size, _, _ := readPushIntOp(tc.Compiled, pc)
 
-		//        if vidx == 0:
-		//            var.distance = pos
-		//        else:
-		//            pre = self.template_vars[vidx-1]
-		//            var.distance = pos - (pre.start + pre.length)
+			log.Printf("%d %d %d", opcode, pc, size)
+			tc.Variables[found].CompiledPosition = pc + 1 // Account for opcode
+			tc.Variables[found].CompiledLength = size - 1
 
-		//        pos += var.length
+			found += 1
+			pc += size
+		case pushbytesOpcode:
+			size, _, _ := readPushByteOp(tc.Compiled, pc)
 
-		//        if var.is_integer:
-		//            pos += 1 # btoi
+			tc.Variables[found].CompiledPosition = pc + 2 // Account for opcode and bytesize
+			tc.Variables[found].CompiledLength = size - 2
 
-		//        pos += 2 #store opcode + slot id byte
+			found += 1
+			pc += size
+		default:
+			// Done with this section, terminate
+			pc = len(tc.Compiled)
+		}
 	}
 
 }
 
 func (tc *TemplateContract) initTemplatePositions() {
 	matches := tmpl_re.FindAllStringIndex(tc.Source, -1)
-	log.Printf("%+v", matches)
-
 	for _, m := range matches {
 		tc.Variables = append(tc.Variables, NewTemplateVariable(tc.Source, m))
 	}

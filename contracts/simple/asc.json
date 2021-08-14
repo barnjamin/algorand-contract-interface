@@ -6,60 +6,46 @@
    "type": "logicsig",
    "logic": {
     "program": {
-     "bytecode": "BCABASJIgCD64fpyRMErD7+KTUR3pB1skFTMyCXTyvmFlyS+lYO3mUiABWR1bW15SCJD",
-     "address": "MAJDOJ7YZTMNCTRXNB7PV3Y2US7MEFUGMPHGCYCUJXHARHMPSCY2PWGEVE",
-     "size": 51,
+     "bytecode": "BCABAYEBgAVkdW1teYAg+uH6ckTBKw+/ik1Ed6QdbJBUzMgl08r5hZckvpWDt5kiIkM=",
+     "address": "QHCLPUDZ7RHD3XNXPGSEQGM3GG6KCS64IRES4TK7236UADICUUOREL43NQ",
+     "size": 50,
      "variables": [
       {
-       "Name": "TMPL_SUCCESS_VAR",
-       "Type": "uint64",
-       "SourceStart": 22,
-       "SourceLength": 16,
-       "CompiledPosition": 0,
-       "CompiledLength": 0
+       "name": "TMPL_INT_VAR",
+       "type": "uint64",
+       "op": "pushint",
+       "src_start": 26,
+       "src_length": 12,
+       "byte_position": 5,
+       "byte_length": 1
       },
       {
-       "Name": "TMPL_OWNER_ADDR",
-       "Type": "addr",
-       "SourceStart": 48,
-       "SourceLength": 15,
-       "CompiledPosition": 0,
-       "CompiledLength": 0
+       "name": "TMPL_NAME_BYTES",
+       "type": "bytes",
+       "op": "pushbytes",
+       "src_start": 49,
+       "src_length": 15,
+       "byte_position": 8,
+       "byte_length": 5
       },
       {
-       "Name": "TMPL_NAME_BYTES",
-       "Type": "bytes",
-       "SourceStart": 78,
-       "SourceLength": 15,
-       "CompiledPosition": 0,
-       "CompiledLength": 0
+       "name": "TMPL_OWNER_ADDR",
+       "type": "addr",
+       "op": "addr",
+       "src_start": 70,
+       "src_length": 15,
+       "byte_position": 15,
+       "byte_length": 32
+      },
+      {
+       "name": "TMPL_BLAH_VAR",
+       "type": "uint64",
+       "op": "int",
+       "src_start": 90,
+       "src_length": 13
       }
      ],
      "source": ""
-    }
-   },
-   "application": {
-    "approval_program": {
-     "bytecode": "",
-     "address": "",
-     "size": 0,
-     "variables": null,
-     "source": ""
-    },
-    "clear_program": {
-     "bytecode": "",
-     "address": "",
-     "size": 0,
-     "variables": null,
-     "source": ""
-    },
-    "global_state_schema": {
-     "num_uints": 0,
-     "num_byte_slices": 0
-    },
-    "local_state_schema": {
-     "num_uints": 0,
-     "num_byte_slices": 0
     }
    }
   }

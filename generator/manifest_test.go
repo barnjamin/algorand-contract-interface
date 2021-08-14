@@ -25,10 +25,8 @@ func TestGenerateInterface(t *testing.T) {
 		t.Fatalf("Failed to generate interface: %+v", err)
 	}
 
-	b, err := json.MarshalIndent(ci, "", " ")
+	_, err = json.MarshalIndent(ci, "", " ")
 	if err != nil {
 		t.Fatalf("Failed to marshal message: %+v", err)
 	}
-
-	t.Logf("%s", b)
 }

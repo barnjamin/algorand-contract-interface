@@ -1,9 +1,7 @@
 #pragma version 4
-int TMPL_SUCCESS_VAR
-pop
-addr TMPL_OWNER_ADDR
-pop
+pushint TMPL_INT_VAR
 pushbytes TMPL_NAME_BYTES
-pop
+addr TMPL_OWNER_ADDR
+int TMPL_BLAH_VAR
 int 1 
 return

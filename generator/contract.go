@@ -9,9 +9,9 @@ const (
 
 // Manifest
 type ContractDefinition struct {
-	Type  ContractType `json:"type"`
-	Logic `json:"logic,omitempty"`
-	App   `json:"application,omitempty"`
+	Type   ContractType `json:"type"`
+	*Logic `json:"logic,omitempty"`
+	*App   `json:"application,omitempty"`
 }
 
 type Logic struct {
@@ -33,9 +33,9 @@ type ContractInterface struct {
 }
 
 type ContractSchema struct {
-	Type        ContractType `json:"type"`
-	LogicSchema `json:"logic,omitempty"`
-	AppSchema   `json:"application,omitempty"`
+	Type         ContractType `json:"type"`
+	*LogicSchema `json:"logic,omitempty"`
+	*AppSchema   `json:"application,omitempty"`
 }
 
 type LogicSchema struct {
