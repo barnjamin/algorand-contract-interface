@@ -1,0 +1,9 @@
+#pragma version 4
+int TMPL_SUCCESS_VAR
+pop
+addr TMPL_OWNER_ADDR
+pop
+pushbytes TMPL_NAME_BYTES
+pop
+int 1 
+return

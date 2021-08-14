@@ -1,0 +1,67 @@
+{
+ "repo": "",
+ "ref": "",
+ "contracts": {
+  "simple": {
+   "type": "logicsig",
+   "logic": {
+    "program": {
+     "bytecode": "BCABASJIgCD64fpyRMErD7+KTUR3pB1skFTMyCXTyvmFlyS+lYO3mUiABWR1bW15SCJD",
+     "address": "MAJDOJ7YZTMNCTRXNB7PV3Y2US7MEFUGMPHGCYCUJXHARHMPSCY2PWGEVE",
+     "size": 51,
+     "variables": [
+      {
+       "Name": "TMPL_SUCCESS_VAR",
+       "Type": "uint64",
+       "SourceStart": 22,
+       "SourceLength": 16,
+       "CompiledPosition": 0,
+       "CompiledLength": 0
+      },
+      {
+       "Name": "TMPL_OWNER_ADDR",
+       "Type": "addr",
+       "SourceStart": 48,
+       "SourceLength": 15,
+       "CompiledPosition": 0,
+       "CompiledLength": 0
+      },
+      {
+       "Name": "TMPL_NAME_BYTES",
+       "Type": "bytes",
+       "SourceStart": 78,
+       "SourceLength": 15,
+       "CompiledPosition": 0,
+       "CompiledLength": 0
+      }
+     ],
+     "source": ""
+    }
+   },
+   "application": {
+    "approval_program": {
+     "bytecode": "",
+     "address": "",
+     "size": 0,
+     "variables": null,
+     "source": ""
+    },
+    "clear_program": {
+     "bytecode": "",
+     "address": "",
+     "size": 0,
+     "variables": null,
+     "source": ""
+    },
+    "global_state_schema": {
+     "num_uints": 0,
+     "num_byte_slices": 0
+    },
+    "local_state_schema": {
+     "num_uints": 0,
+     "num_byte_slices": 0
+    }
+   }
+  }
+ }
+}
